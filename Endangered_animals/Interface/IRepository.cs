@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 
 namespace Endangered_animals
 {
-    public interface IRepository<T>
+    public interface IRepository<T> where T : class
     {
-        T Create(T entity);
-        T Read(int id);
+        T GetById(int id);
+        List<T> GetAll();
+        void Add(T entity);
         void Update(T entity);
         void Delete(int id);
     }

@@ -8,13 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Endangered_animals
+namespace Endangered_animals.Presentation
 {
-    public partial class Form1 : Form
+    public partial class Animals : Form
     {
-        public Form1()
+        public Animals()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Home home = new Home();
+            this.Hide();
+            home.Show();
         }
     }
 }
