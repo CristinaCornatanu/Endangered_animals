@@ -83,6 +83,7 @@
             this.label2.Size = new System.Drawing.Size(34, 25);
             this.label2.TabIndex = 2;
             this.label2.Text = "Id:";
+            this.label2.Visible = false;
             // 
             // label3
             // 
@@ -122,7 +123,7 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(459, 79);
+            this.label6.Location = new System.Drawing.Point(475, 71);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(95, 25);
             this.label6.TabIndex = 6;
@@ -141,7 +142,7 @@
             // 
             // descriereAnimal
             // 
-            this.descriereAnimal.Location = new System.Drawing.Point(474, 108);
+            this.descriereAnimal.Location = new System.Drawing.Point(509, 98);
             this.descriereAnimal.Name = "descriereAnimal";
             this.descriereAnimal.Size = new System.Drawing.Size(352, 203);
             this.descriereAnimal.TabIndex = 8;
@@ -164,6 +165,7 @@
             this.id_animal.Name = "id_animal";
             this.id_animal.Size = new System.Drawing.Size(182, 30);
             this.id_animal.TabIndex = 10;
+            this.id_animal.Visible = false;
             // 
             // typeAnimal
             // 
@@ -176,7 +178,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(584, 341);
+            this.button1.Location = new System.Drawing.Point(522, 341);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(119, 46);
             this.button1.TabIndex = 14;
@@ -187,12 +189,13 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(79, 341);
+            this.button2.Location = new System.Drawing.Point(46, 341);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(91, 44);
+            this.button2.Size = new System.Drawing.Size(124, 46);
             this.button2.TabIndex = 15;
             this.button2.Text = "Adauga";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -203,6 +206,7 @@
             this.button3.TabIndex = 16;
             this.button3.Text = "Update";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -213,6 +217,7 @@
             this.button4.TabIndex = 17;
             this.button4.Text = "Delete";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
