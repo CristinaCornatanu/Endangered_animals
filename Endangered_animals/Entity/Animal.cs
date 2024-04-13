@@ -14,6 +14,8 @@ namespace Endangered_animals
         public int Id{ get; set; }
         [Column("id_specie")]
         public int IdSpecie { get; set; }
+        
+
         [Column("id_tip_alimentatie")]
         public int IdTipAlimentatie { get; set; }
         [Column("type")]
@@ -23,8 +25,10 @@ namespace Endangered_animals
         [Column("imagine")]
         public byte[] Imagine { get; set; }
 
-        public Categorie_Specie SpeciesCategory { get; set; }
+        [ForeignKey("IdSpecie")]
+        protected Categorie_Specie Categorie_Specie { get; set; }
+        [ForeignKey("IdTipAlimentatie")]
+        protected Alimentatie Alimentatie { get; set; }
 
-        public Alimentatie Diet { get; set; }
     }
 }

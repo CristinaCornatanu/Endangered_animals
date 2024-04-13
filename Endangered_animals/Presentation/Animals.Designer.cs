@@ -36,13 +36,17 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.descriere = new System.Windows.Forms.RichTextBox();
+            this.descriereAnimal = new System.Windows.Forms.RichTextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.id_animal = new System.Windows.Forms.TextBox();
-            this.type = new System.Windows.Forms.TextBox();
-            this.specie = new System.Windows.Forms.TextBox();
-            this.alimentatie = new System.Windows.Forms.TextBox();
+            this.typeAnimal = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -56,6 +60,7 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1158, 262);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
             // label1
             // 
@@ -64,7 +69,7 @@
             this.label1.Font = new System.Drawing.Font("Segoe Print", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(408, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(167, 59);
+            this.label1.Size = new System.Drawing.Size(162, 57);
             this.label1.TabIndex = 1;
             this.label1.Text = "Animale";
             // 
@@ -128,25 +133,26 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(860, 61);
+            this.label7.Location = new System.Drawing.Point(914, 58);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(87, 25);
             this.label7.TabIndex = 7;
             this.label7.Text = "Imagine:";
             // 
-            // descriere
+            // descriereAnimal
             // 
-            this.descriere.Location = new System.Drawing.Point(474, 108);
-            this.descriere.Name = "descriere";
-            this.descriere.Size = new System.Drawing.Size(352, 203);
-            this.descriere.TabIndex = 8;
-            this.descriere.Text = "";
+            this.descriereAnimal.Location = new System.Drawing.Point(474, 108);
+            this.descriereAnimal.Name = "descriereAnimal";
+            this.descriereAnimal.Size = new System.Drawing.Size(352, 203);
+            this.descriereAnimal.TabIndex = 8;
+            this.descriereAnimal.Text = "";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Location = new System.Drawing.Point(893, 86);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(268, 233);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
             // 
@@ -159,40 +165,83 @@
             this.id_animal.Size = new System.Drawing.Size(182, 30);
             this.id_animal.TabIndex = 10;
             // 
-            // type
+            // typeAnimal
             // 
-            this.type.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.type.Location = new System.Drawing.Point(173, 107);
-            this.type.Name = "type";
-            this.type.Size = new System.Drawing.Size(278, 30);
-            this.type.TabIndex = 11;
-            // 
-            // specie
-            // 
-            this.specie.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.specie.Location = new System.Drawing.Point(190, 146);
-            this.specie.Name = "specie";
-            this.specie.Size = new System.Drawing.Size(236, 30);
-            this.specie.TabIndex = 12;
-            // 
-            // alimentatie
-            // 
-            this.alimentatie.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.alimentatie.Location = new System.Drawing.Point(176, 179);
-            this.alimentatie.Name = "alimentatie";
-            this.alimentatie.Size = new System.Drawing.Size(227, 30);
-            this.alimentatie.TabIndex = 13;
+            this.typeAnimal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.typeAnimal.Location = new System.Drawing.Point(173, 107);
+            this.typeAnimal.Name = "typeAnimal";
+            this.typeAnimal.Size = new System.Drawing.Size(278, 30);
+            this.typeAnimal.TabIndex = 11;
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(968, 347);
+            this.button1.Location = new System.Drawing.Point(584, 341);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(115, 38);
+            this.button1.Size = new System.Drawing.Size(119, 46);
             this.button1.TabIndex = 14;
             this.button1.Text = "Home";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(79, 341);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(91, 44);
+            this.button2.TabIndex = 15;
+            this.button2.Text = "Adauga";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(200, 341);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(115, 44);
+            this.button3.TabIndex = 16;
+            this.button3.Text = "Update";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(339, 341);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(125, 46);
+            this.button4.TabIndex = 17;
+            this.button4.Text = "Delete";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Location = new System.Drawing.Point(997, 325);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(100, 33);
+            this.button5.TabIndex = 18;
+            this.button5.Text = "Imagine";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(197, 143);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(265, 33);
+            this.comboBox1.TabIndex = 19;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(184, 182);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(278, 33);
+            this.comboBox2.TabIndex = 20;
             // 
             // Animals
             // 
@@ -201,13 +250,17 @@
             this.BackgroundImage = global::Endangered_animals.Properties.Resources.pngtree_nature_animated_red_cloud_clouds_picture_image_2452840;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1173, 665);
+            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.alimentatie);
-            this.Controls.Add(this.specie);
-            this.Controls.Add(this.type);
+            this.Controls.Add(this.typeAnimal);
             this.Controls.Add(this.id_animal);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.descriere);
+            this.Controls.Add(this.descriereAnimal);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -218,6 +271,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "Animals";
             this.Text = "Animals";
+            this.Load += new System.EventHandler(this.Animals_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -235,12 +289,16 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.RichTextBox descriere;
+        private System.Windows.Forms.RichTextBox descriereAnimal;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox id_animal;
-        private System.Windows.Forms.TextBox type;
-        private System.Windows.Forms.TextBox specie;
-        private System.Windows.Forms.TextBox alimentatie;
+        private System.Windows.Forms.TextBox typeAnimal;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBox2;
     }
 }
