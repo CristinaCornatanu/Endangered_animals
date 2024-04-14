@@ -1,4 +1,5 @@
 ﻿using Endangered_animals.Data;
+using Endangered_animals.Interface;
 using Endangered_animals.Utility;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,15 @@ namespace Endangered_animals
         {
             _context = context;
             _dbSet = context.Set<T>();
+        }
+        public void AttachObserver(IObserver observer)
+        {
+            Attach(observer); 
+        }
+
+        public void DetachObserver(IObserver observer)
+        {
+            Detach(observer); 
         }
         public  T GetById(int id)
         {

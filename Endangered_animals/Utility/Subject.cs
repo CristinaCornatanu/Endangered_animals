@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Endangered_animals.Utility
 {
@@ -27,6 +28,11 @@ namespace Endangered_animals.Utility
             {
                 observer.OnDataChanged(sender, e);
             }
+            ShowNotification("Baza de date a fost actualizata!");
+        }
+        protected void ShowNotification(string message)
+        {
+            MessageBox.Show(message, "Notificare", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

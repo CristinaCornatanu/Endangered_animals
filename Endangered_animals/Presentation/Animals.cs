@@ -100,6 +100,9 @@ namespace Endangered_animals.Presentation
                 comboBox2.Items.Add(alimentatie.tip_alimentatie);
             }
         }
+       
+        
+        
         private void button5_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog obPoza = new OpenFileDialog()
@@ -199,6 +202,7 @@ namespace Endangered_animals.Presentation
             animalRepository.Add(newAnimal);
             MessageBox.Show("Animalul a fost adăugat cu succes!");
             RefreshDataGridView();
+            reset();
         }
 
         public void DeleteAnimal(int animalId)
