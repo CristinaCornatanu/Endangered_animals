@@ -17,11 +17,7 @@ namespace Endangered_animals.Utility
         {
             this.dbContext = new endangered_animalsDbContext();
         }
-        public RepositoryFactory(endangered_animalsDbContext dbContext)
-        {
-            this.dbContext = dbContext;
-           
-        }
+        
         public static RepositoryFactory Instance
         {
             get { return instance; }
@@ -43,7 +39,7 @@ namespace Endangered_animals.Utility
             }
             else
             {
-                throw new Exception("Unknown entiy type!");
+                throw new Exception("Unknown entity type!");
             }
         }
     }

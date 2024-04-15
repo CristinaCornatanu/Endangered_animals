@@ -5,6 +5,8 @@ VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Endangered_animals", "Endangered_animals\Endangered_animals.csproj", "{0E54A90A-E319-4226-8264-9D3B997EA7DD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Endangered_animalsTests", "Endangered_animalsTests\Endangered_animalsTests.csproj", "{6C7E4AC7-BB76-481C-BF9A-19A3105654A4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{0E54A90A-E319-4226-8264-9D3B997EA7DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E54A90A-E319-4226-8264-9D3B997EA7DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E54A90A-E319-4226-8264-9D3B997EA7DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C7E4AC7-BB76-481C-BF9A-19A3105654A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C7E4AC7-BB76-481C-BF9A-19A3105654A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C7E4AC7-BB76-481C-BF9A-19A3105654A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C7E4AC7-BB76-481C-BF9A-19A3105654A4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
