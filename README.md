@@ -12,16 +12,22 @@ The Repository Pattern is employed to abstract the way data is accessed from the
 These classes provide methods to perform CRUD (Create, Read, Update, Delete) operations on
 the respective entities, hiding the details of how the data is stored and retrieved.
 
-3. Factory Pattern:
+2. Factory Pattern:
 This pattern is used in the implementation of the IRepositoryFactory interface and the 
 RepositoryFactory class.
 The Factory Pattern is used to create objects without specifying the exact class of the
 object to be created. In this case, RepositoryFactory is responsible for creating 
 repository objects based on the specified type.
 
-4. Observer Pattern:
+3. Observer Pattern:
 This pattern is used in the implementation of the Subject class and the NotifyAll()
 method in the RepositoryBase class.
 The Observer Pattern is used to establish a one-to-many relationship between objects,
 allowing changes in one object to automatically notify other objects that depend on them.
  In this case, Subject is notified when certain operations are performed on the repositories.
+
+4. Singleton design pattern:
+The Singleton design pattern ensures that only one instance of the RepositoryFactory class
+is created and used throughout the lifetime of the application. This is an efficient way to
+manage resources and prevent accidental creation of multiple instances of the same class.
+   
