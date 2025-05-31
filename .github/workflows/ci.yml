@@ -18,12 +18,11 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
-
         
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       
-    - name: Restore dependencies
+    - name: Restore NuGet Packages
       run: dotnet restore
 
     - name: Build project
@@ -32,6 +31,4 @@ jobs:
     - name: Run unit tests
       run: dotnet test --no-build --verbosity normal
 
-    - name: Restore NuGet Packages
-      run: dotnet restore
-
+    
