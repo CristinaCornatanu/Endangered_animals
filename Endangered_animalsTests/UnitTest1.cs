@@ -16,7 +16,7 @@ namespace Endangered_animalsTests
     {
         [TestMethod]
        
-        public void TestConvertImageToByteArray_Success()
+        public void Test_ConvertImageToByteArray()
         {
             Image testImage = Image.FromFile("C:\\Users\\corna\\Downloads\\Danaus_plexippus_MHNT.jpg");
 
@@ -27,7 +27,7 @@ namespace Endangered_animalsTests
         }
 
         [TestMethod]
-        public void TestConvertByteArrayToImage()
+        public void Test_ConvertByteArrayToImage()
         {
 
             byte[] testByteArray = File.ReadAllBytes("C:\\Users\\corna\\Downloads\\Danaus_plexippus_MHNT.jpg");
@@ -63,8 +63,8 @@ namespace Endangered_animalsTests
                 Id = 1,
                 IdSpecie = 2,
                 IdTipAlimentatie = 3,
-                Type = "Mamifer",
-                Descriere = "Leu",
+                Type = "Leu",
+                Descriere = "Mamifer",
                 Imagine = new byte[] { 0x01, 0x02, 0x03 }
             };
 
@@ -79,7 +79,7 @@ namespace Endangered_animalsTests
             var mockSet = new Mock<DbSet<Animal>>();
             var mockContext = new Mock<endangered_animalsDbContext>();
 
-            var expectedAnimal = new Animal { Id = 1, Type = "Mamifer", Descriere = "Leu" };
+            var expectedAnimal = new Animal { Id = 1, Type = "Leu", Descriere = "Mamifer" };
 
             mockSet.Setup(m => m.Find(1)).Returns(expectedAnimal);
             mockContext.Setup(c => c.Set<Animal>()).Returns(mockSet.Object);
@@ -91,9 +91,23 @@ namespace Endangered_animalsTests
             Assert.AreEqual(expectedAnimal.Type, retrievedAnimal.Type);
         }
 
+       [TestMethod]
+        public void Test_Delete_Animal()
+        {
+            var mockSet = new Mock<DbSet<Animal>>();
+            var mockContext = new Mock<endangered_animalsDbContext>();
 
+            var animal = new Animal { Id = 3, Type = "Sarpe", Descriere = "Reptila" };
 
+            mockSet.Setup(m => m.Find(3)).Returns(animal);
+            mockContext.Setup(c => c.Set<Animal>()).Returns(mockSet.Object);
 
+            var repo = new AnimalRepository(mockContext.Object);
+            repo.Delete(3);
+
+            mockSet.Verify(m => m.Remove(It.IsAny<Animal>()), Times.Once);
+            mockContext.Verify(c => c.SaveChanges(), Times.Once);
+        }
 
     }
 }
