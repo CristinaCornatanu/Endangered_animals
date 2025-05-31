@@ -2,6 +2,12 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Drawing;
 using System.IO;
+using Moq;
+using System;
+using Endangered_animals.Interface;
+using Endangered_animals;
+using Endangered_animals.Data;
+using System.Data.Entity;
 
 namespace Endangered_animalsTests
 {
@@ -32,5 +38,62 @@ namespace Endangered_animalsTests
             Assert.IsInstanceOfType(result, typeof(Image));
             Assert.IsTrue(result.Width > 0 && result.Height > 0);
         }
+
+        [TestMethod]
+        public void Test_NotifyAll()
+        {
+            var subject = new Subject();
+            var mockObserver = new Mock<IObserver>();
+            subject.Attach(mockObserver.Object);
+            subject.NotifyAll(subject, EventArgs.Empty);
+            mockObserver.Verify(o => o.OnDataChanged(subject, EventArgs.Empty), Times.Once);
+        }
+
+        [TestMethod]
+        public void Test_Add_Animal()
+        {
+            var mockSet = new Mock<DbSet<Animal>>();
+            var mockContext = new Mock<endangered_animalsDbContext>();
+
+            mockContext.Setup(c => c.Set<Animal>()).Returns(mockSet.Object);
+
+            var repo = new AnimalRepository(mockContext.Object);
+            var newAnimal = new Animal
+            {
+                Id = 1,
+                IdSpecie = 2,
+                IdTipAlimentatie = 3,
+                Type = "Mamifer",
+                Descriere = "Leu",
+                Imagine = new byte[] { 0x01, 0x02, 0x03 }
+            };
+
+            repo.Add(newAnimal);
+
+            mockSet.Verify(m => m.Add(It.IsAny<Animal>()), Times.Once);
+        }
+
+        [TestMethod]
+        public void Test_GetById_Animal()
+        {
+            var mockSet = new Mock<DbSet<Animal>>();
+            var mockContext = new Mock<endangered_animalsDbContext>();
+
+            var expectedAnimal = new Animal { Id = 1, Type = "Mamifer", Descriere = "Leu" };
+
+            mockSet.Setup(m => m.Find(1)).Returns(expectedAnimal);
+            mockContext.Setup(c => c.Set<Animal>()).Returns(mockSet.Object);
+
+            var repo = new AnimalRepository(mockContext.Object);
+            var retrievedAnimal = repo.GetById(1);
+
+            Assert.IsNotNull(retrievedAnimal);
+            Assert.AreEqual(expectedAnimal.Type, retrievedAnimal.Type);
+        }
+
+
+
+
+
     }
 }

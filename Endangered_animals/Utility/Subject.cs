@@ -22,7 +22,7 @@ namespace Endangered_animals.Utility
             observers.Remove(observer);
         }
 
-        protected void NotifyAll(object sender, EventArgs e)
+        public void NotifyAll(object sender, EventArgs e)
         {
             foreach(var observer in observers)
             {
