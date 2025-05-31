@@ -30,4 +30,5 @@ jobs:
         run: msbuild Endangered_animals.sln /p:Configuration=Release
 
       - name: Run unit tests
-        run: dotnet test --no-build --verbosity normal
+        run: |
+          vstest.console.exe "Endangered_animalsTests\bin\Debug\Endangered_animalsTests.dll"
