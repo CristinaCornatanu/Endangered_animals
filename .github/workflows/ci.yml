@@ -22,8 +22,8 @@ jobs:
     - name: Setup .NET Framework Developer Pack
       run: |
         choco install dotnetfx -y
-        choco install dotnet-4.7.2-sdk -y
-        choco install dotnet-4.7.2-targeting-pack -y
+        choco install dotnet-4.8-sdk -y
+        choco install dotnet-4.8-targeting-pack -y
 
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
