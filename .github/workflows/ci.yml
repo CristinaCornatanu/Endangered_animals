@@ -30,6 +30,6 @@ jobs:
         run: msbuild Endangered_animals.sln /p:Configuration=Release
 
       - name: Run unit tests
-        run: >
+        run: |
           "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\TestPlatform\vstest.console.exe"
           "Endangered_animalsTests\bin\Debug\Endangered_animalsTests.dll"
