@@ -11,7 +11,7 @@ namespace Endangered_animals.Utility
 {
     public class ImageConverterHelper
     {
-        private static ImageConverter imageConverter = new ImageConverter();
+        public static ImageConverter imageConverter = new ImageConverter();
 
         public static byte[] ConvertImageToByteArray(Image image)
         {
