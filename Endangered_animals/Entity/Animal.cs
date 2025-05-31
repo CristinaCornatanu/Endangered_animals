@@ -26,9 +26,9 @@ namespace Endangered_animals
         public byte[] Imagine { get; set; }
 
         [ForeignKey("IdSpecie")]
-        protected Categorie_Specie Categorie_Specie { get; set; }
+        public Categorie_Specie Categorie_Specie { get; set; }
         [ForeignKey("IdTipAlimentatie")]
-        protected Alimentatie Alimentatie { get; set; }
+        public Alimentatie Alimentatie { get; set; }
 
     }
 }
