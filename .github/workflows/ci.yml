@@ -31,3 +31,7 @@ jobs:
 
     - name: Run unit tests
       run: dotnet test --no-build --verbosity normal
+
+    - name: Restore NuGet Packages
+      run: dotnet restore
+
