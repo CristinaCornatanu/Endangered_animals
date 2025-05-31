@@ -1,4 +1,4 @@
-name: .NET CI
+name: Continuous Integration
 
 on:
   push:
@@ -17,11 +17,17 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         
-      - name: Restore dependencies
-        run: dotnet restore
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v1.1
+
+      - name: Setup NuGet
+        uses: NuGet/setup-nuget@v1
+
+      - name: Restore NuGet packages
+        run: nuget restore Endangered_animals.sln
 
       - name: Build solution
-        run: dotnet build --no-restore --configuration Release
+        run: msbuild Endangered_animals.sln /p:Configuration=Release
 
       - name: Run unit tests
         run: dotnet test --no-build --verbosity normal
