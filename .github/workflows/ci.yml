@@ -12,11 +12,11 @@ jobs:
 
     steps:
       - name: Checkout repo
-        uses: actions/upload-artifact@v4
+        uses: actions/checkout@v3
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
-
+        
       - name: Setup MSBuild
         uses: microsoft/setup-msbuild@v1.1
 
@@ -29,14 +29,7 @@ jobs:
       - name: Build solution
         run: msbuild Endangered_animals.sln /p:Configuration=Release
 
-      - name: Run unit tests with reporting
+      - name: Run unit tests
         run: |
-          "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\TestPlatform\vstest.console.exe" ^
+          "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\TestPlatform\vstest.console.exe"
           "Endangered_animalsTests\bin\Debug\Endangered_animalsTests.dll"
-
-      - name: Simple Deploy Step
-        if: success()
-        run: |
-          echo "Deploying build..."
-          mkdir output
-          copy Endangered_animals\bin\Release\* output\
