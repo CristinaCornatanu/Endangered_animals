@@ -34,10 +34,8 @@ jobs:
       
 
       - name: Run unit tests
-        run: '"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\TestPlatform\vstest.console.exe" Endangered_animalsTests\bin\Debug\Endangered_animalsTests.dll'
-      
-      - name: Deploy - zip build output
+        run: vstest.console Endangered_animalsTests\bin\Debug\Endangered_animalsTests.dll Logger:trx
+      - name: Simple Deployment
         run: |
-          mkdir deploy
-          xcopy /s /y Endangered_animals\bin\Release deploy\
-          powershell Compress-Archive -Path deploy\* -DestinationPath deployed_build.zip
+          mkdir D:\temp\deployment
+          xcopy C:\Users\corna\source\repos\Endangered_animals\Endangered_animals\bin\Debug\* D:\temp\deployment /s /y
