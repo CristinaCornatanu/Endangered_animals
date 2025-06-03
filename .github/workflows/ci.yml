@@ -34,8 +34,6 @@ jobs:
       - name: Build solution
         run: msbuild Endangered_animals.sln /p:Configuration=Release
       
-      - name: Build solution debug
-        run: msbuild Endangered_animals.sln /p:Configuration=Debug
       
       - name: Install VSTest platform
         uses: darenm/Setup-VSTest@v1
