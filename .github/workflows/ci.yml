@@ -11,12 +11,7 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - name: Install MSTest packages
-        run: |
-          dotnet add Endangered_animals.sln package MSTest.TestAdapter --version 3.1.0
-          dotnet add Endangered_animals.sln package MSTest.TestFramework --version 3.1.0
-    
-
+     
       - name: Checkout repo
         uses: actions/checkout@v3
 
@@ -41,7 +36,7 @@ jobs:
 
       - name: Run unit tests
         run: |
-          vstest.console Endangered_animalsTests\bin\Release\Endangered_animalsTests.dll --TestAdapterPath:. --Logger:trx
+          vstest.console Endangered_animals\Endangered_animalsTests\bin\Debug\Endangered_animalsTests.dll
       - name: Deploy - zip build output
         run: |
           mkdir deploy
