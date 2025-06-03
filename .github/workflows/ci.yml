@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - name: Checkout repo
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
@@ -32,16 +32,7 @@ jobs:
       - name: Run unit tests with reporting
         run: |
           "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\TestPlatform\vstest.console.exe" ^
-          "Endangered_animalsTests\bin\Debug\Endangered_animalsTests.dll" ^
-          /Logger:trx ^
-          /ResultsDirectory:TestResults
-
-      - name: Upload test results
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: TestResults
-          path: TestResults/*.trx
+          "Endangered_animalsTests\bin\Debug\Endangered_animalsTests.dll"
 
       - name: Simple Deploy Step
         if: success()
