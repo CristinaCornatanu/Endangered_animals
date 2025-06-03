@@ -47,3 +47,6 @@ jobs:
     needs: build-and-test
     runs-on: windows-latest
     if: success()
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
