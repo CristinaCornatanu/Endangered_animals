@@ -36,20 +36,16 @@ jobs:
           /Logger:trx ^
           /ResultsDirectory:TestResults
 
-      - name: Publish test results
+      - name: Upload test results
         if: always()
         uses: actions/upload-artifact@v3
         with:
           name: TestResults
           path: TestResults/*.trx
 
-  deploy:
-    needs: build-and-test
-    runs-on: windows-latest
-    if: success()
-
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
-
-    
+      - name: Simple Deploy Step
+        if: success()
+        run: |
+          echo "Deploying build..."
+          mkdir output
+          copy Endangered_animals\bin\Release\* output\
