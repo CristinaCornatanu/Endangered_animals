@@ -37,7 +37,7 @@ jobs:
 
       - name: Run unit tests
         run: |
-          vstest.console Endangered_animalsTests\bin\Debug\Endangered_animalsTests.dll --TestAdapterPath:. --Logger:trx
+          vstest.console Endangered_animalsTests\bin\Release\Endangered_animalsTests.dll --TestAdapterPath:. --Logger:trx
       - name: Deploy - zip build output
         run: |
           mkdir deploy
