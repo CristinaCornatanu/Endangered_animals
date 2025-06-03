@@ -37,7 +37,7 @@ jobs:
 
       - name: Run unit tests
         run: |
-          "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\TestPlatform\vstest.console.exe" Endangered_animalsTests\bin\Debug\Endangered_animalsTests.dll --TestAdapterPath:. --Logger:trx
+          vstest.console Endangered_animalsTests\bin\Debug\Endangered_animalsTests.dll --TestAdapterPath:. --Logger:trx
       - name: Deploy - zip build output
         run: |
           mkdir deploy
