@@ -36,7 +36,7 @@ jobs:
 
       - name: Run unit tests
         run: |
-          vstest.console Endangered_animalsTests\bin\Debug\Endangered_animalsTests.dll
+          vstest.console Endangered_animals\Endangered_animalsTests\bin\Debug\Endangered_animalsTests.dll
       - name: Deploy - zip build output
         run: |
           mkdir deploy
