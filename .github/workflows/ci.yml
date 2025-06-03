@@ -32,10 +32,12 @@ jobs:
       - name: Build solution debug
         run: msbuild Endangered_animals.sln /p:Configuration=Debug
       
+      - name: Install VSTest platform
+        uses: darenm/Setup-VSTest@v1
 
       - name: Run unit tests
         run: |
-          "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\TestPlatform\vstest.console.exe" "Endangered_animalsTests\bin\Debug\Endangered_animalsTests.dll"
+          "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\TestPlatform\vstest.console.exe" Endangered_animalsTests\bin\Debug\Endangered_animalsTests.dll --TestAdapterPath:. --Logger:trx
       - name: Deploy - zip build output
         run: |
           mkdir deploy
