@@ -13,8 +13,9 @@ jobs:
     steps:
       - name: Install MSTest packages
         run: |
-          dotnet add Endangered_animalsTests/Endangered_animalsTests.csproj package MSTest.TestAdapter --version 3.1.0
-          dotnet add Endangered_animalsTests/Endangered_animalsTests.csproj package MSTest.TestFramework --version 3.1.0
+          dotnet add Endangered_animals.sln package MSTest.TestAdapter --version 3.1.0
+          dotnet add Endangered_animals.sln package MSTest.TestFramework --version 3.1.0
+    
 
       - name: Checkout repo
         uses: actions/checkout@v3
