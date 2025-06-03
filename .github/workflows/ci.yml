@@ -31,12 +31,18 @@ jobs:
         run: msbuild Endangered_animals.sln /p:Configuration=Release
       
       
-      - name: Install VSTest platform
-        uses: darenm/Setup-VSTest@v1
-
-      - name: Run unit tests
+      - name: Find vstest.console.exe path
+        id: find-vstest
+        shell: powershell
         run: |
-          vstest.console "C:\Users\corna\source\repos\Endangered_animals\Endangered_animalsTests\bin\Debug\Endangered_animalsTests.dll"
+          $vstest = Get-ChildItem -Path "C:\Program Files\Microsoft Visual Studio\" -Recurse -Filter vstest.console.exe -ErrorAction SilentlyContinue | Select-Object -First 1 -ExpandProperty FullName
+          echo "VSTEST_CONSOLE=$vstest" >> $env:GITHUB_ENV
+  
+      - name: Run unit tests
+        shell: powershell
+        run: |
+          & $env:VSTEST_CONSOLE "Endangered_animals/Endangered_animalsTests/bin/Release/net8.0/Endangered_animalsTests.dll"
+          
       - name: Deploy - zip build output
         run: |
           mkdir deploy
